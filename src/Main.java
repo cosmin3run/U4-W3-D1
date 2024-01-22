@@ -70,6 +70,13 @@ public class Main {
                 "GROUP BY EXTRACT(YEAR FROM data_fattura)\n" +
                 "HAVING COUNT(*) > 2;");
 
+        //ESTRARRE GLI ANNI IN CUI SONO STATE REGISTRATE PIU DI 2 FATTURE DI TIPO "type_A"
+        System.out.println("\n");
+        System.out.println("SELECT clienti.regione_residenza,\n" +
+                "SUM(fatture.importo) AS totale_importi\n" +
+                "FROM fatture JOIN clienti ON fatture.id_cliente = clienti.numero_cliente\n" +
+                "GROUP BY (clienti.regione_residenza)");
+
 
     }
 }
