@@ -77,6 +77,9 @@ public class Main {
                 "FROM fatture JOIN clienti ON fatture.id_cliente = clienti.numero_cliente\n" +
                 "GROUP BY (clienti.regione_residenza)");
 
-
+        //ESTRARRE IL NUMERO DI CLIENTI NATI NEL 1989 CHE HANNO ALMENO UNA FATTURA SUPERIORE A 50 EURO
+        System.out.println("\n");
+        System.out.println("SELECT COUNT(DISTINCT clienti.numero_cliente) AS numero_clienti\n" +
+                "from clienti JOIN fatture ON clienti.numero_cliente = fatture.id_cliente WHERE clienti.anno_nascita = 1980 AND fatture.importo > '50'");
     }
 }
